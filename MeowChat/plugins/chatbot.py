@@ -1,5 +1,4 @@
 import os
-
 import httpx
 from motor.motor_asyncio import AsyncIOMotorClient
 from pyrogram import enums, filters
@@ -7,9 +6,10 @@ from pyrogram.types import Message
 
 from MeowChat import app
 from MeowChat.utils.admins import admin_check
+from config import API_URL, MONGO_URL 
 
-API_URL = os.getenv("API_URL")
-MONGO_URL = os.getenv("MONGO_URL")
+# ================== DATABASE ==================
+
 mongo = AsyncIOMotorClient(MONGO_URL)
 db = mongo["chatbot"]
 col = db["status"]
@@ -50,7 +50,7 @@ async def toggle_chatbot(client, message: Message):
     ]:
         return await message.reply_text("❌ This works only in groups")
 
-    # 🔥 ADMIN CHECK
+    # Admin check
     if not await admin_check(message):
         return await message.reply_text("❌ You are not admin")
 
@@ -74,6 +74,7 @@ async def toggle_chatbot(client, message: Message):
 async def chatbot_reply(client, message: Message):
     chat_id = message.chat.id
 
+    # Only reply if enabled in group
     if message.chat.type in [
         enums.ChatType.GROUP,
         enums.ChatType.SUPERGROUP,
@@ -85,7 +86,6 @@ async def chatbot_reply(client, message: Message):
         return
 
     final_text = f"{PROMPT}\nUser: {message.text}"
-
     payload = {"message": final_text}
 
     try:
@@ -106,5 +106,5 @@ async def chatbot_reply(client, message: Message):
         await message.reply_text(reply)
 
     except Exception as e:
-        print("Error:", e)
+        print("Chatbot Error:", e)
         await message.reply_text("⚠️ Something went wrong")
