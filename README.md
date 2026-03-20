@@ -1,20 +1,20 @@
 # 🤖 MeowChat Userbot
 
-A powerful Telegram Userbot AI Chatbot built with Pyrogram + MongoDB + API system.
+A powerful Telegram Userbot AI Chatbot built with **Pyrogram + MongoDB + API system**.
 
 ---
 
 ## 🚀 Features
 
-- AI Chatbot (API based replies)
-- Runs on your Telegram account (Userbot)
-- /chatbot ON/OFF toggle system
-- Admin / Owner control
-- MongoDB database (chat status saving)
-- Fast async system (httpx + motor)
-- Custom prompt support (prompt.txt)
-- Secure config system (config.py)
-- Heroku deploy ready
+- 🤖 AI Chatbot (API based replies)
+- 👤 Runs on your Telegram account (Userbot)
+- 🔄 `/chatbot` ON/OFF toggle system
+- 👑 Admin / Owner control
+- 💾 MongoDB database (chat status saving)
+- ⚡ Fast async system (httpx + motor)
+- 🧠 Custom prompt support (`prompt.txt`)
+- 🔐 Secure config system (`config.py`)
+- 🚀 Heroku deploy ready
 
 ---
 
@@ -29,22 +29,25 @@ A powerful Telegram Userbot AI Chatbot built with Pyrogram + MongoDB + API syste
 
 ## 🔐 Environment Variables
 
+```env
 API_ID=your_api_id
 API_HASH=your_api_hash
 STRING_SESSION=your_string_session
 MONGO_URL=your_mongo_url
 API_URL=your_chatbot_api
 OWNER_ID=your_telegram_id
+```
 
 ---
 
 ## 🔑 Generate STRING_SESSION
 
+```bash
 pip install pyrogram tgcrypto
 python3
+```
 
-Then run:
-
+```python
 from pyrogram import Client
 
 api_id = int(input("API_ID: "))
@@ -52,29 +55,33 @@ api_hash = input("API_HASH: ")
 
 with Client("session", api_id=api_id, api_hash=api_hash) as app:
     print(app.export_session_string())
+```
 
 ---
 
 ## 🚀 Deploy to Heroku
 
-One Click Deploy:
+### 🟣 One Click Deploy
 
-https://dashboard.heroku.com/new?template=https://github.com/riteshxcoder/Chatbot
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/TheAloneTeam/Id-ChatBot)
 
 ---
 
 ## 🛠️ Manual Deploy
 
+```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
 cd YOUR_REPO
 
 pip install -r requirements.txt
 python main.py
+```
 
 ---
 
 ## 📁 Project Structure
 
+```
 MeowChat/
 ├── plugins/
 │   └── chatbot.py
@@ -86,12 +93,15 @@ MeowChat/
 ├── requirements.txt
 ├── Procfile
 ├── runtime.txt
+```
 
 ---
 
 ## 💬 Commands
 
-/chatbot → Enable / Disable chatbot
+| Command | Description |
+|--------|-------------|
+| `/chatbot` | Enable / Disable chatbot |
 
 ---
 
@@ -106,7 +116,7 @@ MeowChat/
 
 ## 🛡️ Disclaimer
 
-This is a userbot. Use responsibly.
+This is a **userbot**. Use responsibly.
 
 ---
 
