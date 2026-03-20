@@ -1,0 +1,23 @@
+{
+  "name": "chatbot-userbot",
+  "description": "Private userbot AI chatbot using Pyrogram, MongoDB, and Together API",
+  "env": {
+    "API_ID": {
+      "description": "Get from https://my.telegram.org"
+    },
+    "API_HASH": {
+      "description": "Get from https://my.telegram.org"
+    },
+    "STRING_SESSION": {
+      "description": "Pyrogram string session for userbot"
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram user ID"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
