@@ -1,6 +1,6 @@
-from pyrogram.types import Message
 from pyrogram import filters
-from pyrogram.enums import ChatType, ChatMemberStatus
+from pyrogram.enums import ChatMemberStatus, ChatType
+from pyrogram.types import Message
 
 # ================== ADMIN CHECK ==================
 
@@ -41,7 +41,4 @@ async def admin_filter_func(filt, client, message):
     return await admin_check(message)
 
 
-admin_filter = filters.create(
-    func=admin_filter_func,
-    name="AdminFilter"
-)
+admin_filter = filters.create(func=admin_filter_func, name="AdminFilter")
