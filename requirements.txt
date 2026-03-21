@@ -6,4 +6,4 @@ pymongo==4.6.3
 
 httpx==0.28.1
 
-python-dotenv==1.0.1
+python-dotenv==1.2.2
